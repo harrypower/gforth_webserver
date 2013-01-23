@@ -1,0 +1,17 @@
+
+<HTML> 
+<HEAD>  
+<TITLE>GForth <$ version-string type $> presents</TITLE>  
+</HEAD>  
+<BODY>  
+<H1>Computing Primes</H1>  <$ 25 Constant #prim $> 
+<P>The first  <$ #prim $>  primes are:  <$ 
+: prim?  0 over 2 max 2 ?DO  over I mod 0= or  LOOP  nip 0= ; 
+: prims ( n - )  0 swap  2  
+  swap 0 DO  dup prim? IF  swap  IF  ." , "  THEN  true swap  
+  dup 0 .r 1+  1  ELSE  1+  0  THEN  
+  +LOOP  drop ; 
+  #prim prims $>  .</P>  
+</BODY>  
+</HTML>
+

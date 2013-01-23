@@ -1,0 +1,14 @@
+httpd.fs 
+string.fs
+proxy.fs
+sockets.fs
+
+These files are from the gforth 0.7.0 distributed files.  
+These files can be found at /usr/share/gforth/0.7.0 if you have installed gforth via $ apt-get install gforth
+The httpd.fs was writen by Bernd Paysan so the credit goes to him for all the work here!
+The other files i am unsure of who the authors are but Bernd may be also responsible for them.
+I have not tested the proxy stuff yet or set it up to be used yet.  
+This code needs the inetd service running and this can be installed with $ apt-get install inetutils-inetd
+
+I have made this repository for the purpose of enabling other Raspberry Pi users to learn and use forth
+as another programming lanugauge.  This repository is used on a raspberry pi with debian wheezy distro running!
