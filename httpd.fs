@@ -159,6 +159,8 @@ Variable htmldir
 
 \ MIME type handling                                   26mar00py
 
+: encoding_utf ." ;" ."  " ." charset=UTF-8" ;
+
 : >mime ( addr u -- mime u' )  2dup tuck over + 1- ?DO
   I c@ '. = ?LEAVE  1-  -1 +LOOP  /string  ;
 
@@ -185,7 +187,7 @@ Variable htmldir
 : transparent: ( addr u -- ) Create  here over 1+ allot place
   DOES>  >r  >file
   .connection
-  ." Content-Type: "  r> count type cr cr
+  ." Content-Type: "  r>  count type encoding_utf cr cr
   data @ IF  transparent  ELSE  nip close-file throw  THEN ;
 
 \ mime types                                           26mar00py
@@ -196,14 +198,14 @@ Variable htmldir
 	char '# <> >in off name nip 0<> and  IF
 	    >in off name
 	    BEGIN  >in @ >r name nip  WHILE
-		r> >in ! 2dup transparent:  REPEAT
+		r> >in ! 2dup transparent: REPEAT
 	    2drop rdrop
 	THEN
     REPEAT  loadfile @ close-file pop-file throw ;
 
 : lastrequest
   ." Connection: close" cr maxnum off
-  ." Content-Type: text/html" cr cr ;
+  ." Content-Type: text/html" encoding_utf cr cr ;
 
 wordlist constant mime
 mime set-current
@@ -279,6 +281,13 @@ script? [IF]  :noname &100 httpd bye ; is bootmessage  [THEN]
         type cr refill  0= UNTIL  EXIT  THEN
     nip source >in @ /string rot - dup 2 + >in +! type ;
 : <HTML> ( -- )  ." <HTML>"  $> ;
+
+\ Added the DOCTYPE here for .shtml files to ensure this DOCTYPE gets into the output html
+\ Note the shtml file should have <!DOCTYPE html> at beginning of file.  The code below just
+\ adds that statement back into the html that is output from the shtml file.
+
+: <!DOCTYPE  ." <!DOCTYPE " ;
+: html>  ." html>" cr ;
 
 \ provide transparent proxying
 
