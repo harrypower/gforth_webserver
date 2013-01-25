@@ -4,7 +4,7 @@
 <HEAD>  
 <TITLE>GForth <$ version-string type $> presents</TITLE>  
 </HEAD>  
-<BODY>  
+<BODY background="book.jpg" >  
 <H1>Computing Primes</H1>  <$ 25 Constant #prim $> 
 <P>The first  <$ #prim $>  primes are:  <$ 
 : prim?  0 over 2 max 2 ?DO  over I mod 0= or  LOOP  nip 0= ; 
