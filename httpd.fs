@@ -159,7 +159,9 @@ Variable htmldir
 
 \ MIME type handling                                   26mar00py
 
-: encoding_utf ." ;" ."  " ." charset=UTF-8" ;
+: encoding_utf-8 ( -- )." ;" ."  " ." charset=UTF-8" ;
+: encoding_test ( addr u -- ) s" text/html" search 
+  if type encoding_utf-8 else type endif ;
 
 : >mime ( addr u -- mime u' )  2dup tuck over + 1- ?DO
   I c@ '. = ?LEAVE  1-  -1 +LOOP  /string  ;
@@ -187,7 +189,7 @@ Variable htmldir
 : transparent: ( addr u -- ) Create  here over 1+ allot place
   DOES>  >r  >file
   .connection
-  ." Content-Type: "  r>  count type encoding_utf cr cr
+  ." Content-Type: "  r>  count encoding_test  cr cr
   data @ IF  transparent  ELSE  nip close-file throw  THEN ;
 
 \ mime types                                           26mar00py
@@ -205,7 +207,7 @@ Variable htmldir
 
 : lastrequest
   ." Connection: close" cr maxnum off
-  ." Content-Type: text/html" encoding_utf cr cr ;
+  ." Content-Type: text/html" encoding_utf-8 cr cr ;
 
 wordlist constant mime
 mime set-current
