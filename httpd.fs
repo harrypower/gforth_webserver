@@ -43,14 +43,6 @@
 
 \ If you want port 80, replace the service "gforth" with "http"
 
-\ ******************************************************************
-\ The file called /etc/mime.types needs the following change for webserver to work
-\ In this /etc/mime.types file there is a line of text as follows:
-\ text/html		html htm shtml
-\ This line needs to be changed to the following:
-\ text/html		html htm
-\ ******************************************************************
-
 warnings off
 
 require string.fs
@@ -212,9 +204,6 @@ Variable htmldir
 wordlist constant mime
 mime set-current
 
-: shtml ( addr u -- )  lastrequest
-    data @  IF  also forth included previous  ELSE  2drop  THEN  ;
-
 s" application/pgp-signature" transparent: sig
 s" application/x-bzip2" transparent: bz2
 s" application/x-gzip" transparent: gz
@@ -226,6 +215,9 @@ s" /etc/mime.types" ' mime-read catch [IF]  2drop
     s" image/png" transparent: png
     s" image/jpg" transparent: jpg
 [THEN]
+
+: shtml ( addr u -- ) lastrequest
+     data @ IF also forth included previous ELSE 2drop THEN ;
 
 definitions
 

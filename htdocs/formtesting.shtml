@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<HTML> 
+<HEAD>  
+<TITLE>GForth <$ version-string type $> presents</TITLE>  
+</HEAD>  
+<BODY background="book.jpg">  
+<H1>Form and Post testing</H1>
+<form method="get">
+Your name: <input type="text" name="fname" size="20" />
+<input type="submit" value="Submit" />
+</form>
+
+<$ include /home/pi/git/Rpi_Gforth_GPIO/rpi_GPIO_lib.fs 
+: dosetup piosetup 0= if s" GPIO started correctly!" type else s" oops GPIO did not start up correctly!" type endif ;
+: docleanup piocleanup 0= if s" GPIO is now turning off!" type else s" GPIO did not cleanup correctly!" type endif ; 
+: doinput 25 pipininput 0= if s" Pin 25 is now ready for input!" type else s" Pin 25 did not change to input!" type endif ; 
+: doread 25 pad pipinread 0= if s" Pin 25 is " type pad c@ 0= if s" low!" type else s" high!" type endif else s" Pin 25 failed to read!" type endif ; $>
+<P> <$ dosetup  $> </P>
+<P> <$ doinput $> </P>
+<P> <$ doread $> </P>
+<P> <$ docleanup $> </P>
+
+</BODY>  
+</HTML>
+
