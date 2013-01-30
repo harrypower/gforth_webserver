@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<HTML> 
+<HEAD>  
+<TITLE>Get from form example</TITLE>  
+</HEAD>  
+<BODY>  
+<H1>Form example with get</H1>
+
+<P>url-args are :  <$ url-args $@ type $>  </P>  
+
+</BODY>  
+</HTML>
+
