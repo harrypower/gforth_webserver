@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<HTML> 
+<HEAD>  
+<meta charset="utf-8">
+<TITLE>Post example</TITLE>  
+</HEAD>  
+<BODY>  
+
+<H1>Form example with post processed in this html file via a forth script!</H1>
+
+<form action="formpostself.shtml"  method="post">
+First name: <input type="text" name="thefirst" value="your name here"><br>
+Second Name: <input type="text" name="thesecond" value="second name here"><br>
+<input type="submit" value="submit">
+</form>
+
+<P>Posted is: <$ active @ 0 = [IF] s" Nothing Posted Yet!" type [ELSE] posted $@ type [THEN] $> </P>
+
+<P>Click submit button!</P>  
+</BODY>  
+</HTML>
+

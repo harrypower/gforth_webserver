@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<HTML> 
+<HEAD>  
+<meta charset="utf-8">
+<TITLE>Post example</TITLE>  
+</HEAD>  
+<BODY>  
+<H1>Form example with post</H1>
+
+<P>posted is :  <$ posted $@ type $>  </P>  
+
+</BODY>  
+</HTML>
+

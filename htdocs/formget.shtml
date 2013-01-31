@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<HTML> 
+<HEAD>  
+<meta charset="utf-8">
+<TITLE>Form Get example</TITLE>  
+</HEAD>  
+<BODY>  
+
+<H1>Form example with get</H1>
+
+<form action="getoutput.shtml"  method="get">
+First name: <input type="text" name="thefirst" value="your name here"><br>
+Second Name: <input type="text" name="thesecond" value="second name here"><br>
+<input type="submit" value="submit">
+</form>
+
+
+<P>Click submit button!</P>  
+</BODY>  
+</HTML>
+
