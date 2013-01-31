@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <HTML> 
 <HEAD>  
+<meta charset="utf-8">
 <TITLE>Post example</TITLE>  
 </HEAD>  
 <BODY>  
 
-<$ value: thefirst: $>
-
 <H1>Form example with post processed in this html file via a forth script!</H1>
 
-<form  method="post">
+<form action="formpostself.shtml"  method="post">
 First name: <input type="text" name="thefirst" value="your name here"><br>
 Second Name: <input type="text" name="thesecond" value="second name here"><br>
 <input type="submit" value="submit">

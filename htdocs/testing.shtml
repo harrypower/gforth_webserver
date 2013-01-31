@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <HTML> 
 <HEAD>  
+<meta charset="utf-8">
 <TITLE>GForth <$ version-string type $> presents</TITLE>  
 </HEAD>  
 <BODY>  

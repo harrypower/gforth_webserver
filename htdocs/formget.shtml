@@ -2,11 +2,10 @@
 <!DOCTYPE html>
 <HTML> 
 <HEAD>  
+<meta charset="utf-8">
 <TITLE>Form Get example</TITLE>  
 </HEAD>  
 <BODY>  
-
-<$ value: thefirst: $>
 
 <H1>Form example with get</H1>
 
