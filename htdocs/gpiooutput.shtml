@@ -28,7 +28,8 @@ GPIO pin number: <input type="number" name="gpionumber"><br>
 	else s" could not be set for low!" type
 	then ;
 : dosetoutput { u -- } s" Pin" type u u. u pipinoutput 0= if s" set for output!" type  u dooutput else  s" could not change to output!" type then ; $>
-<P> <$ dosetup  $> </P>
+
+<P> <$ dosetup $> </P>
 <P>Postgetnumber output is: <$ postgetnumber [if] u. [else] drop [then] $> </P>
 <P> <$ postgetnumber [if] dosetoutput [else] drop s" Please reenter a Raspberry Pi pin value!" type [then] $> </P>
 
