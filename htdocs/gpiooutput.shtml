@@ -11,7 +11,6 @@ GPIO pin number: <input type="number" name="gpionumber"><br>
 <input type="submit" value="Output">
 </form>
 <P>Posted is: <$ active @ 0 = [IF] s" no post!" type [ELSE] posted $@ type [THEN] $> </P>
-
 <P>Calling the included files and librarys now! </P>
 <$ include /home/pi/git/Rpi_Gforth_GPIO/rpi_GPIO_lib.fs 
 : dosetup ( -- ) piosetup 0= if s" GPIO started correctly!" type else s" oops GPIO did not start up correctly!" type then ;
