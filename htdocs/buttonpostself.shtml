@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<HTML> 
+<HEAD>  
+<meta charset="utf-8">
+<TITLE>Post example</TITLE>  
+</HEAD>  
+<BODY>  
+
+<H1>Select example with post processed in this html file via a forth script!</H1>
+
+<select name="pin25" form="button1">
+	<option value="1">ON</option>
+	<option value="0">OFF</option>
+</select>
+<form  action="buttonpostself.shtml"  method="post" id="button1">
+<input type="submit" value="GPIO pin 25"> </form>
+
+<select name="pin27" form="button2">
+	<option value="1">ON</option>
+	<option value="0">OFF</option>
+</select>
+<form  action="buttonpostself.shtml"  method="post" id="button2">
+<input type="submit" value="GPIO pin 27"> </form>
+<br>
+
+<form action="buttonpostself.shtml" method="post" >
+GPIO pin 2:<select name="pin2"><option value="1">ON</option><option value="0">OFF</option></select>
+<input type="submit" value="set"> </form>
+
+<P>Posted message is: <$ active @ 0 = [IF] s" Nothing Posted Yet!" type [ELSE] posted $@ type [THEN] $> </P>
+
+<P>Select output value and press the button to see post message! (Note this example only shows the post message nothing happens to hardware!)</P>
+<a href="index.html">Home</a>
+</BODY>  
+</HTML>
+
