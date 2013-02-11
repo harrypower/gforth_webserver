@@ -17,13 +17,18 @@ To use this server you need to install Gforth, inetd and then configure this ser
 -Install stuff
     $ sudo apt-get install gforth
     $ sudo apt-get install inetutils-inetd
--Adjust the path for your web content
+-Install dependent Rpi_Gforth_GPIO library ( the raspberry pi gpio stuff depends on this library !)
+	Follow the README in the gpio directory for information on compiling the C code into a shared library.
+	Run gforth as in the README in the gpio directory and enter the following as show in that README:
+		include rpi_GPIO_lib.fs
+	There should be no message if all is working.  Note if you need to recompile the library just follow the README file for how to remove the old and recompile the new library.  Then use ./clean command to remove the gforth library and then do the above include rpi_GPIO_lib.fs from gforth command line to reconnect the c library to gforth.  
+-Adjust the path for your web content as follows:
     $ sudo nano httpd.fs
 	Find the following line in the code:
 	Variable DocumentRoot  s" /home/pi/git/gforth_webserver/htdocs/" DocumentRoot $!
 	Change the /home/pi/git/gforth_webserver/htdocs/ to match where the index.html and other web docs are.
 	Save the file with control x, y enter.
--Configure inetd service and start the webserver
+-Configure inetd service and start the webserver as follows:
     $ sudo nano /etc/inetd.conf
 	Move the curser to the end of the document and enter the following text:
 	gforth stream tcp nowait.100 pi /home/pi/git/gforth_webserver/httpd.fs
