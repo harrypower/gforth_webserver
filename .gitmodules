@@ -1,0 +1,3 @@
+[submodule "gpio"]
+	path = gpio
+	url = https://github.com/harrypower/Rpi_Gforth_GPIO.git

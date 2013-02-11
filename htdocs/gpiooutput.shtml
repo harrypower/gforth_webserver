@@ -12,7 +12,7 @@ GPIO pin number: <input type="number" name="gpionumber"><br>
 </form>
 <P>Posted is: <$ active @ 0 = [IF] s" no post!" type [ELSE] posted $@ type [THEN] $> </P>
 <P>Calling the included files and librarys now! </P>
-<$ include /home/pi/git/Rpi_Gforth_GPIO/rpi_GPIO_lib.fs 
+<$ include ../gpio/rpi_GPIO_lib.fs 
 : dosetup ( -- ) piosetup 0= if s" GPIO started correctly!" type else s" oops GPIO did not start up correctly!" type then ;
 : docleanup  ( -- )piocleanup 0= if s" GPIO is now turning off!" type else s" GPIO did not cleanup correctly!" type then ; 
 : postgetnumber  ( -- u f ) active @ 0 = if 0 false else posted $@ s" gpionumber=" search if 11 /string s>number? if dabs d>s true else false then then then ;

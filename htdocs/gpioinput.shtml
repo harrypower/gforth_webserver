@@ -8,7 +8,7 @@
 <BODY background="book.jpg">  
 <H1>Reading pin 25 of the GPIO header</H1>
 <P>Calling the included files and librarys now! </P>
-<$ include /home/pi/git/Rpi_Gforth_GPIO/rpi_GPIO_lib.fs 
+<$ include ../gpio/rpi_GPIO_lib.fs 
 : dosetup piosetup 0= if s" GPIO started correctly!" type else s" oops GPIO did not start up correctly!" type endif ;
 : docleanup piocleanup 0= if s" GPIO is now turning off!" type else s" GPIO did not cleanup correctly!" type endif ; 
 : doinput 25 pipininput 0= if s" Pin 25 is now ready for input!" type else s" Pin 25 did not change to input!" type endif ; 
