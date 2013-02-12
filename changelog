@@ -1,0 +1,7 @@
+This changelog is for httpd.fs only and shows the changes i made from the httpd.fs file that comes with Gforth install files!
+
+Changes in order they occured:
+- Added forth word <!DOCTYPE and html> to simply echo out the <!DOCTYPE html> for .shtml files.  Html and hml files will always just echo out the file.
+- Moved the word shtml to be compiled after the /etc/mime.types file is processed.  The reason for this is if .shtml is in the mime type list then during processing a shtml word is created that would overwrite the definition of shtml that is needed to process .shtml files.
+- Added encoding_utf-8 and encoding_test.  The encoding_test simply checks a string on the stack for text/html and if it is in the text then a " ; charset=UTF-8 is added to the string and type is used to echo out that new string.  This test is placed just at the place in code that Content-Type: is determined and output as a string.  Now i in truth do not force the output of the data from this webserver to be UTF-8 so this may need to be revisited.  In the html and other docs placing <meta charset="utf-8"> works but this change allows this data to be sent out in the http header information.
+

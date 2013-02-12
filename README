@@ -10,8 +10,7 @@ The other files i am unsure of who the authors are but Bernd may be also respons
 I have not tested the proxy stuff yet or set it up to be used yet.  
 This code needs the inetd service running and this can be installed with $ apt-get install inetutils-inetd
 
-I have made this repository for the purpose of enabling other Raspberry Pi users to learn and use forth
-as another programming lanugauge.  This repository is used on a raspberry pi with debian wheezy distro running!
+I have made this repository for the purpose of enabling other Raspberry Pi users to learn and use forth as another programming lanugauge.  This repository is used on a raspberry pi with debian wheezy distro running!
 
 To use this server you need to install Gforth, inetd and then configure this service and adjust the path for the web files. The steps are below( do this on the pi or via sshing into the pi)
 -Install stuff
@@ -31,7 +30,7 @@ To use this server you need to install Gforth, inetd and then configure this ser
 -Configure inetd service and start the webserver as follows:
     $ sudo nano /etc/inetd.conf
 	Move the curser to the end of the document and enter the following text:
-	gforth stream tcp nowait.100 pi /home/pi/git/gforth_webserver/httpd.fs
+	gforth stream tcp nowait.100 root /home/pi/git/gforth_webserver/httpd.fs
 	( Note if you want this to work on port 80 then replace gforth with http in above line. )
 	Save the file with control x y enter
 	$ sudo nano /etc/services 
