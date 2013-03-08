@@ -17,7 +17,7 @@ To use this server you need to install Gforth, inetd and then configure this ser
     $ sudo apt-get install gforth
     $ sudo apt-get install inetutils-inetd
 -Install dependent Rpi_Gforth_GPIO library ( the raspberry pi gpio stuff depends on this library !)
-	Note that this Rpi_Gforth_GPIO is a submodule in this repository.  This means you must issue these four commands from repository directory to get the files:
+	Note that this Rpi_Gforth_GPIO is a submodule in this repository.  This means you must issue these four commands from this gforth_webserver repositorys directory to get the files:
 		$ sudo git submodule init
 		$ sudo git submodule update
 		$ cd gpio
