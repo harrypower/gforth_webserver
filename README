@@ -17,7 +17,12 @@ To use this server you need to install Gforth, inetd and then configure this ser
     $ sudo apt-get install gforth
     $ sudo apt-get install inetutils-inetd
 -Install dependent Rpi_Gforth_GPIO library ( the raspberry pi gpio stuff depends on this library !)
-	Follow the README in the gpio directory for information on compiling the C code into a shared library.
+	Note that this Rpi_Gforth_GPIO is a submodule in this repository.  This means you must issue these four commands from repository directory to get the files:
+		$ sudo git submodule init
+		$ sudo git submodule update
+		$ cd gpio
+		$ sudo git checkout master
+	Now follow the README in the gpio directory for information on compiling the C code into a shared library.
 	Run gforth as in the README in the gpio directory and enter the following as show in that README:
 		include rpi_GPIO_lib.fs
 	There should be no message if all is working.  Note if you need to recompile the library just follow the README file for how to remove the old and recompile the new library.  Then use ./clean command to remove the gforth library and then do the above include rpi_GPIO_lib.fs from gforth command line to reconnect the c library to gforth.  
@@ -39,6 +44,6 @@ To use this server you need to install Gforth, inetd and then configure this ser
 	Save the file with control x y enter
 	Now at this moment you can restart your pi as follows:
 	$ sudo shutdown "now" -r
-When the pi starts up it will server your index.html and other web stuff on port 4444 or 80 if you did the http change in the note above!
+When the pi starts up it will serve your index.html and other web stuff on port 4444 or 80 if you did the http change in the note above!
 	
 	
