@@ -1,0 +1,64 @@
+<HTML>
+<HEAD>
+<TITLE>Gate Keeper</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--- Hide from tired old browsers that should be put to pasture.
+
+////////////////////////////////////////////////////////////////////
+///  Get your very own Gate Keeper from Professional Web Design  ///
+///  http://junior.apk.net/~jbarta/weblinks/gate_keeper/         ///
+////////////////////////////////////////////////////////////////////
+
+function goForit() {
+  var location;
+  var password;
+  password=this.document.testform.inputbox.value
+  location=password + ".shtml"
+  fetch(location)
+  theKeeper=window.close()
+}
+
+function fetch(location) {
+  var root;
+  if (opener.closed) {
+    root=window.open('','theKeepersGopher','toolbar=yes,location=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,copyhistory=no');
+    root.location.href = location;
+  } else {
+    opener.location.href = location;
+  }
+}
+
+// End hiding --->
+</SCRIPT>
+
+</HEAD>
+
+<BODY BACKGROUND="book.jpg">
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100%>
+<TR>
+<TD ROWSPAN=2 WIDTH=50%>
+&nbsp;&nbsp;
+
+<TD WIDTH=50% ALIGN=CENTER VALIGN=MIDDLE>
+<FONT FACE="ARIAL" SIZE=2><B>Hold on there buddy. You'll need a password to get in here. We're tryin' to keep out the riff-raff.</B></FONT><BR>
+&nbsp;
+
+<TR>
+<TD WIDTH=50% ALIGN=CENTER VALIGN=BOTTOM>
+<CENTER>
+<FORM NAME="testform">
+<INPUT TYPE="text" NAME="inputbox" VALUE="" size=20>
+<INPUT TYPE="button" NAME="button" Value="Submit Password" onClick="goForit(this.form)">
+
+
+</FORM>
+</CENTER>
+
+
+</TABLE>
+
+</BODY>
+
+</HTML>
