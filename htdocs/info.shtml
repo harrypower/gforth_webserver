@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+<meta charset="utf-8">
+<TITLE>Gforth Info </TITLE>
+</HEAD>
+<BODY background="book.jpg">
+<H1> Host </H1>
+<$ Host $@ type  $>
+<h1> Referer </h1>
+<$ Referer $@ type $>
+</BODY>
+</HTML>
