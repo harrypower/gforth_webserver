@@ -16,7 +16,7 @@ To use this server you need to install Gforth, inetd and then configure this ser
 -Install stuff
     $ sudo apt-get install gforth
     $ sudo apt-get install inetutils-inetd
--Install dependent Rpi_Gforth_GPIO library ( the raspberry pi gpio stuff depends on this library !)
+-Install dependent Rpi_Gforth_GPIO library submodule ( the raspberry pi gpio stuff depends on this library !)
 	Note that this Rpi_Gforth_GPIO is a submodule in this repository.  This means you must issue these four commands from this gforth_webserver repositorys directory to get the files:
 		$ sudo git submodule init
 		$ sudo git submodule update
@@ -26,6 +26,14 @@ To use this server you need to install Gforth, inetd and then configure this ser
 	Run gforth as in the README in the gpio directory and enter the following as show in that README:
 		include rpi_GPIO_lib.fs
 	There should be no message if all is working.  Note if you need to recompile the library just follow the README file for how to remove the old and recompile the new library.  Then use ./clean command to remove the gforth library and then do the above include rpi_GPIO_lib.fs from gforth command line to reconnect the c library to gforth.  
+-Install dependant Chart.js library submodule ( this is only needed if you want to see the chart test or work with it in any way!)
+	Do the following to install it from the gforth_webserver directory:
+		$ sudo git submodule init
+		$ sudo git submodule update
+		$ cd /htdocs/chart
+		$ sudo git checkout master
+	Nothing else is needed to be done for this submodule.  
+	Note there are example html files in this submodule directory for example usage of the chart.js library.
 -Adjust the path for your web content as follows:
     $ sudo nano httpd.fs
 	Find the following line in the code:

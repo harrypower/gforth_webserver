@@ -1,3 +1,6 @@
 [submodule "gpio"]
 	path = gpio
 	url = https://github.com/harrypower/Rpi_Gforth_GPIO.git
+[submodule "htdocs/chart"]
+	path = htdocs/chart
+	url = https://github.com/nnnick/Chart.js.git

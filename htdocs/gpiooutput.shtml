@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <HTML> 
 <HEAD>  
@@ -14,8 +13,16 @@ GPIO pin number: <input type="number" name="gpionumber"><br>
 <P>Calling the included files and librarys now! </P>
 <$ include ../gpio/rpi_GPIO_lib.fs 
 : dosetup ( -- ) piosetup 0= if s" GPIO started correctly!" type else s" oops GPIO did not start up correctly!" type then ;
+
 : docleanup  ( -- )piocleanup 0= if s" GPIO is now turning off!" type else s" GPIO did not cleanup correctly!" type then ; 
-: postgetnumber  ( -- u f ) active @ 0 = if 0 false else posted $@ s" gpionumber=" search if 11 /string s>number? if dabs d>s true else false then then then ;
+
+: postgetnumber  ( -- u f ) active @ 0 =
+if 0 false else posted $@ s" gpionumber=" search
+	if 11 /string s>number?
+		if dabs d>s true else false then
+	then
+then ;
+
 : dooutput { u -- } s" <br>Pin" type u u. u pipinlow 0= 
 	if s" is now low!" type  u pipinhigh 0= 
 		if s" <br>Pin" type u u. s" is now high!" type 2000 ms u pipinlow 0= 
@@ -29,9 +36,9 @@ GPIO pin number: <input type="number" name="gpionumber"><br>
 : dosetoutput { u -- } s" Pin" type u u. u pipinoutput 0= if s" set for output!" type  u dooutput else  s" could not change to output!" type then ; $>
 
 <P> <$ dosetup $> </P>
-<P>Postgetnumber output is: <$ postgetnumber [if] u. [else] drop [then] $> </P>
-<P> <$ postgetnumber [if] dosetoutput [else] drop s" Please reenter a Raspberry Pi pin value!" type [then] $> </P>
-
+<P> <$ postgetnumber [if] s" Postgetnumber output is: " type u. [else] drop active @ 0 = [if] s" Nothing posted yet!" type [then] [then] $> </P>
+<P> <$ postgetnumber false = [if] drop s" Enter a number above and press output button!" type [then] $> </P>
+<P> <$ postgetnumber [if] dosetoutput [then] $> </P>
 <P> <$ docleanup $> </P>
 
 </BODY>  
