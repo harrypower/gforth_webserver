@@ -151,7 +151,7 @@ Variable htmldir
 
 \ MIME type handling                                   26mar00py
 
-: encoding_utf-8 ( -- )." ;" ."  " ." charset=UTF-8" ;
+: encoding_utf-8 ( -- ) ." ;" ."  " ." charset=UTF-8" ;
 : encoding_test ( addr u -- ) s" text/html" search 
   if type encoding_utf-8 else type endif ;
 
