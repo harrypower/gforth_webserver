@@ -251,7 +251,7 @@ s" text/plain" transparent: txt
 
 \ http server                                          26mar00py
 
-: setcookie s" set-cookie: name=just a test cookie for now;" type  ;
+: setcookie  s" set-cookie: here is a session cookie that is deleted at browsers after browsers close." type ;
 
 Defer redirect?  ( addr u -- addr' u' t / f )
 Defer redirect ( addr u -- )
@@ -261,7 +261,7 @@ Defer redirect ( addr u -- )
     IF  url $@ 1 /string 2dup redirect? IF  redirect 2drop  ELSE
 	rework-htmldir
 	dup 0< IF  drop .nofile
-	ELSE  .ok setcookie 2dup >mime mime search-wordlist 
+	ELSE  .ok 2dup >mime mime search-wordlist \ after the .ok the set cookie could happen  
 	    0= IF  ['] txt  THEN  catch IF  maxnum off THEN
 	THEN  THEN  THEN  THEN outfile-id flush-file throw ;
 
