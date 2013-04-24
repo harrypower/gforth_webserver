@@ -7,7 +7,7 @@
 <BODY>  
 <H1>Form example with post</H1>
 
-<P>posted is :  <$ posted $@ type $>  </P>  
+<P>posted is :  <$ active @ 0 = [if] s" nothing posted yet!" type [else] posted $@ type [then] $>  </P>  
 
 </BODY>  
 </HTML>
