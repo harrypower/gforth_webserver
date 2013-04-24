@@ -13,7 +13,5 @@
 <$ url $@ type $>
 <h1> url-args </h1>
 <$ url-args $@ type $>
-<h1> cookie </h1>
-<$ : @cookie try cookie $@ type 0 restore 0<> if s" no cookie present!" type then endtry ; @cookie  $>
 </BODY>
 </HTML>
