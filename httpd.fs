@@ -28,7 +28,7 @@
 \ gforth stream tcp nowait.10000   wwwrun   /usr/users/bernd/bin/httpd
 \
 \ note this is how i have this line set currently with this repository
-\ gforth stream tcp nowait.100 pi /home/pi/git/gforth_webserver/httpd.fs
+\ gforth stream tcp nowait.100 root /home/pi/git/gforth_webserver/httpd.fs
 \ I have tested only the inetd service and it works 
  
 \ If you use xinetd, create the folliwing service in /etc/xinetd.d:
