@@ -1,4 +1,4 @@
-#! /usr/local/bin/gforth
+#! /usr/bin/gforth
 
 \ Copyright (C) 2000,2002,2003,2004,2006,2007,2008 Free Software Foundation, Inc.
 
@@ -267,6 +267,7 @@ Defer redirect ( addr u -- )
   maxnum @ 0 DO  ['] http catch  maxnum @ 0= or  ?LEAVE  LOOP ;
 
 \ script? [IF]  :noname &100 httpd bye ; is bootmessage  [THEN]
+\ replaced the above line with below line from 0.7.9_2013 repository version of this code
 script? [IF]
     :noname &100 httpd stdout flush-file 0 (bye) ; is 'quit
     ' noop IS bootmessage
@@ -289,5 +290,5 @@ script? [IF]
 
 \ provide transparent proxying
 
-\ include ./proxy.fs
+include ./proxy.fs
 
