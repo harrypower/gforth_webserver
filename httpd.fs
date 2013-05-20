@@ -266,12 +266,7 @@ Defer redirect ( addr u -- )
 : httpd  ( n -- )  dup maxnum ! 0 <# #S #> Keep-Alive $!
   maxnum @ 0 DO  ['] http catch  maxnum @ 0= or  ?LEAVE  LOOP ;
 
-\ script? [IF]  :noname &100 httpd bye ; is bootmessage  [THEN]
-\ replaced the above line with below line from 0.7.9_2013 repository version of this code
-script? [IF]
-    :noname &100 httpd stdout flush-file 0 (bye) ; is 'quit
-    ' noop IS bootmessage
-[THEN]
+script? [IF]  :noname &100 httpd bye ; is bootmessage  [THEN]
 
 \ Use Forth as server-side script language             26mar00py
 
